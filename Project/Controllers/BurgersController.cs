@@ -1,14 +1,21 @@
 using System;
 using System.Collections.Generic;
 using burgerapi.Models;
+using burgerapi.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace burgerapi.Controllers
 {
   [ApiController]
   [Route("api/[controller]")]
-  public class BurgerController : ControllerBase
+  public class BurgersController : ControllerBase
   {
+    private readonly BurgerService _bs;
+    public BurgersController(BurgerService bs)
+    {
+      _bs = bs;
+    }
+
     [HttpGet]
     public ActionResult<IEnumerable<Burger>> Get()
     {
