@@ -9,16 +9,10 @@ namespace burgerapi.Controllers
   [Route("api/[controller]")]
   public class BurgerController : ControllerBase
   {
-    List<Burger> Burgers = new List<Burger>(){
-      new Burger("Cheezeburger", "Issa cheezeburger", 9.99),
-      new Burger("Mushroom Swiss", "Its got mushrooms and swiss", 10.00),
-      new Burger("Ham and Egg", "Burger with Ham and an egg on it", 12.00)
-    };
-
     [HttpGet]
     public ActionResult<IEnumerable<Burger>> Get()
     {
-      return Ok(Burgers);
+      return Ok();
     }
 
     [HttpPost]
@@ -26,8 +20,8 @@ namespace burgerapi.Controllers
     {
       try
       {
-        Burgers.Add(burger);
-        return Ok(Burgers);
+
+        return Ok();
       }
       catch (Exception e)
       {
